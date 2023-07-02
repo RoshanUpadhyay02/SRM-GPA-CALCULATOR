@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SGPA Calculator - Subject Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        h2 {
+            color: #333333;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            width: 40%;
+            margin-right: 10px;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .form-group input[type="number"],
+        .form-group input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .go-back-btn {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SGPA Calculator</h1>
+        <h2>Enter the details for each subject:</h2>
+        <form action="/result" method="post">
+            <input type="hidden" name="num_subjects" value="{{ num_subjects }}">
+            {% for i in range(num_subjects) %}
+                <div class="form-group">
+                    <label>Subject {{ i + 1 }} Credits:</label>
+                    <input type="number" name="credits_{{ i }}" min="0" required>
+                    <label>Subject {{ i + 1 }} Grade:</label>
+                    <input type="text" name="grade_{{ i }}" required>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <button type="submit">Calculate SGPA</button>
+            </div>
+        </form>
+        <div class="go-back-btn">
+            <button onclick="location.href='/';">Go Back</button>
+        </div>
+    </div>
+</body>
+</html>
