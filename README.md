@@ -1,4 +1,4 @@
-# SRM-SGPA-CALCULATOR
+# SRM-GPA-CALCULATOR
 
 <a href = 'https://srm-sgpa-calculator.vercel.app/'> Click here to access the calculator </a>
 
